@@ -169,7 +169,19 @@ function swapValues(arr){
 
 swapValues([2,3,5,7,6])
 
-function insertXInY(arr, x , y){
+function reverse(arr){
+    for(var i =0;i<arr.length/2;i++){
+        temp = arr[i];
+        arr[i]=arr[arr.length-1-i];
+        arr[arr.length-1-i] = temp;
+        // console.log(arr[i])
+    }
+    console.log(arr);
+}
+
+reverse([-3,5,3,2,10])
+
+function insertXinY(arr, x , y){
 	arr.push(0);
 	for(var i=arr.length-1;i>y;i--){
 		arr[i] = arr[i-1];
@@ -178,4 +190,24 @@ function insertXInY(arr, x , y){
 	console.log(arr);
 }
 
-insertXInY([1,3,6,4],10,2)
+insertXinY([1,3,5,7],2,10)
+
+function removeNegatives(arr){
+    var count = 0;
+    for (var i=0;i<arr.length;i++){
+        if(arr[i] < 0){
+            count++;
+        }
+        else{
+            arr[i-count] = arr[i];
+        }
+    }
+    while(count > 0){
+        arr.pop();
+        count--;
+    }
+    console.log(arr);
+    
+}
+
+removeNegatives([0,-1,2,-3,4,-5,6])
